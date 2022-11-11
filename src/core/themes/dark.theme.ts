@@ -11,5 +11,6 @@ export const DARK_THEME_ID = 'DARK_THEME';
 
 export const DarkTheme: Theme = {
   id: DARK_THEME_ID,
+  isDark: true,
   palette: DarkPalette,
 };

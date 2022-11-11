@@ -7,5 +7,6 @@ export interface ColorPalette {
 
 export interface Theme {
   id: string;
+  isDark: boolean;
   palette: ColorPalette;
 }

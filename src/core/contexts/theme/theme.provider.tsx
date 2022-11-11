@@ -4,12 +4,12 @@ import {LightTheme} from '../../themes/light.theme';
 
 interface ProvidedTheme {
   theme: Theme;
-  changeTheme: (value: Theme) => void;
+  setTheme: (newTheme: Theme) => void;
 }
 
 const ThemeContext = React.createContext<ProvidedTheme>({
   theme: LightTheme,
-  changeTheme: () => {
+  setTheme: () => {
     console.log('changed theme');
   },
 });
@@ -22,18 +22,24 @@ interface ThemeProviderProps {
 export const ThemeProvider = React.memo<ThemeProviderProps>(props => {
   const [theme, setTheme] = React.useState<Theme>(props.initialTheme);
 
-  const changeThemeCallback = React.useCallback((value: Theme) => {
-    setTheme(value);
+  const setThemeCallback = React.useCallback((newTheme: Theme) => {
+    setTheme((currentTheme: Theme) => {
+      if (currentTheme.id === newTheme.id) {
+        return currentTheme;
+      }
+
+      return newTheme;
+    });
   }, []);
 
   const MemoizedTheme = React.useMemo(() => {
     const value: ProvidedTheme = {
       theme,
-      changeTheme: changeThemeCallback,
+      setTheme: setThemeCallback,
     };
 
     return value;
-  }, [theme, changeThemeCallback]);
+  }, [theme, setThemeCallback]);
 
   return (
     <ThemeContext.Provider value={MemoizedTheme}>
@@ -42,4 +48,4 @@ export const ThemeProvider = React.memo<ThemeProviderProps>(props => {
   );
 });
 
-export const useTheme = () => React.useContext(ThemeContext);
+export const useCustomTheme = () => React.useContext(ThemeContext);

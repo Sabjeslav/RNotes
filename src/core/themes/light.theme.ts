@@ -11,5 +11,6 @@ export const LIGHT_THEME_ID = 'LIGHT_THEME';
 
 export const LightTheme: Theme = {
   id: LIGHT_THEME_ID,
+  isDark: false,
   palette: LightPalette,
 };
