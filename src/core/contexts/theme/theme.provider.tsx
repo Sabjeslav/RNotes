@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {Appearance} from 'react-native';
 import {Theme} from '../../themes/theme.interface';
 import {LightTheme} from '../../themes/light.theme';
+import {DarkTheme} from '../../themes/dark.theme';
 
 interface ProvidedTheme {
   theme: Theme;
@@ -31,6 +33,18 @@ export const ThemeProvider = React.memo<ThemeProviderProps>(props => {
       return newTheme;
     });
   }, []);
+
+  useEffect(() => {
+    const initialTheme = Appearance.getColorScheme();
+    initialTheme === 'dark'
+      ? setThemeCallback(DarkTheme)
+      : setThemeCallback(LightTheme);
+    Appearance.addChangeListener(preferences => {
+      preferences.colorScheme === 'dark'
+        ? setThemeCallback(DarkTheme)
+        : setThemeCallback(LightTheme);
+    });
+  }, [setThemeCallback]);
 
   const MemoizedTheme = React.useMemo(() => {
     const value: ProvidedTheme = {
