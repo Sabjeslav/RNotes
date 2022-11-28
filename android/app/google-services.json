@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "910555713171",
+    "project_id": "rnotes-1cb92",
+    "storage_bucket": "rnotes-1cb92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910555713171:android:df65605bc93130a3eb4766",
+        "android_client_info": {
+          "package_name": "com.rnotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910555713171-ltsbh5i0n81i6bprh48lgtaue9ig1rvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7tS8eTQgQe2gYiFbU_rFzS1ejjFL6L8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910555713171-ltsbh5i0n81i6bprh48lgtaue9ig1rvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
