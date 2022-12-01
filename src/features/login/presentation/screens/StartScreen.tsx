@@ -17,7 +17,7 @@ const createStyles = (theme: Theme) => {
   });
 };
 
-const LoginScreen: React.FC = () => {
+const StartScreen: React.FC = () => {
   const styles = useThemeAwareObject(createStyles);
   return (
     <SafeAreaView style={styles.sav}>
@@ -56,6 +56,7 @@ const LoginScreen: React.FC = () => {
 const staticStyles = StyleSheet.create({
   headerBox: {
     alignItems: 'center',
+    paddingTop: '15%',
   },
   headerText: {
     fontWeight: '700',
@@ -83,4 +84,4 @@ const staticStyles = StyleSheet.create({
     width: '50%',
   },
 });
-export default LoginScreen;
+export default StartScreen;

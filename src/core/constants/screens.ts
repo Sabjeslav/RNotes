@@ -4,5 +4,6 @@ export const RootScreens = {
 };
 
 export const LoginScreens = {
+  START_SCREEN: 'START_SCREEN',
   LOGIN_SCREEN: 'LOGIN_SCREEN',
 };
