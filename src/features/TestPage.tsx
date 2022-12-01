@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  SafeAreaView,
   StatusBar,
   StatusBarStyle,
   StyleSheet,
@@ -8,6 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {Theme} from '../core/themes/theme.interface';
 import useThemeAwareObject from '../core/hooks/theme/ThemeAwareObject.hook';
 import {useCustomTheme} from '../core/contexts/theme/theme.provider';
