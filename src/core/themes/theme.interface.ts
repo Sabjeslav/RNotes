@@ -3,6 +3,7 @@ export interface ColorPalette {
   primaryText: string;
   secondaryText: string;
   background: string;
+  action: string;
 }
 
 export interface Theme {
