@@ -15,6 +15,8 @@ interface LoginButtonProps {
   onPress: () => void;
   onPressIn?: () => void;
   onPressOut?: () => void;
+  onLongPress?: () => void;
+  longPressDelay?: number;
   buttonContainerStyle?: ViewStyle;
   children?: React.ReactNode;
 }
@@ -35,6 +37,8 @@ const ActionButton: React.FC<LoginButtonProps> = ({
   onPress,
   onPressIn,
   onPressOut,
+  onLongPress,
+  longPressDelay,
   buttonContainerStyle,
   children,
 }) => {
@@ -44,7 +48,7 @@ const ActionButton: React.FC<LoginButtonProps> = ({
     return {
       transform: [
         {
-          scale: withTiming(interpolate(+pressed.value, [0, 1], [1, 0.95]), {
+          scale: withTiming(interpolate(+pressed.value, [0, 1], [1, 0.97]), {
             duration: 100,
             easing: Easing.ease,
           }),
@@ -68,6 +72,8 @@ const ActionButton: React.FC<LoginButtonProps> = ({
       onPress={onButtonPress}
       onPressOut={onPressOutCallback}
       onPressIn={onPressInCallback}
+      onLongPress={onLongPress}
+      delayLongPress={longPressDelay}
       style={[styles.button, buttonContainerStyle, dynamicStyles]}
       entering={FadeInDown}>
       {children}

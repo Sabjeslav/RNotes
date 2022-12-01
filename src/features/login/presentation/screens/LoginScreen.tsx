@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Theme} from '../../../../core/themes/theme.interface';
 import useThemeAwareObject from '../../../../core/hooks/theme/ThemeAwareObject.hook';
 import ActionButton from '../../../../core/components/ActionButton';
@@ -10,8 +10,6 @@ const createStyles = (theme: Theme) => {
     sav: {
       backgroundColor: theme.palette.background,
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
     },
     text: {
       color: theme.palette.primaryText,
@@ -23,26 +21,60 @@ const LoginScreen: React.FC = () => {
   const styles = useThemeAwareObject(createStyles);
   return (
     <SafeAreaView style={styles.sav}>
-      <Text style={styles.text}>Welcome!</Text>
-      <ActionButton
-        onPress={() => {
-          console.log('Pressed');
-        }}
-        buttonContainerStyle={staticStyles.loginButton}>
-        <Text>Login</Text>
-      </ActionButton>
-      <ActionButton
-        onPress={() => {
-          console.log('Pressed');
-        }}
-        buttonContainerStyle={staticStyles.loginButton}>
-        <Text>Sign Up</Text>
-      </ActionButton>
+      <View style={staticStyles.headerBox}>
+        <Text style={[staticStyles.headerText, styles.text]}>Welcome!</Text>
+      </View>
+      <View style={staticStyles.mainBox}>
+        <ActionButton
+          onPress={() => {
+            console.log('Pressed');
+          }}
+          buttonContainerStyle={staticStyles.loginButton}>
+          <Text style={styles.text}>Log In</Text>
+        </ActionButton>
+        <ActionButton
+          onPress={() => {
+            console.log('Pressed');
+          }}
+          buttonContainerStyle={staticStyles.loginButton}>
+          <Text style={styles.text}>Sign Up</Text>
+        </ActionButton>
+      </View>
+      <View style={staticStyles.footerBox}>
+        <ActionButton
+          onPress={() => {}}
+          buttonContainerStyle={staticStyles.footerButton}>
+          <Text style={[staticStyles.footerText, styles.text]}>
+            Continue without account
+          </Text>
+        </ActionButton>
+      </View>
     </SafeAreaView>
   );
 };
 
 const staticStyles = StyleSheet.create({
+  headerBox: {
+    alignItems: 'center',
+  },
+  headerText: {
+    fontWeight: '700',
+    fontSize: 24,
+  },
+  mainBox: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  footerBox: {
+    alignItems: 'center',
+  },
+  footerText: {
+    textDecorationLine: 'underline',
+  },
+  footerButton: {
+    backgroundColor: 'transparent',
+  },
   loginButton: {
     paddingVertical: 10,
     paddingHorizontal: 20,
