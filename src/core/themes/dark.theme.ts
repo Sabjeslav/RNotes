@@ -1,10 +1,11 @@
 import {ColorPalette, Theme} from './theme.interface';
 
 const DarkPalette: ColorPalette = {
-  primary: '#000',
-  primaryText: '#fff',
-  secondaryText: '#ccc',
-  background: '#0c0c0c',
+  background: '#121718',
+  primary: '#1C1E20',
+  primaryText: '#FFFFFF',
+  secondaryText: '#6B7071',
+  action: '#CC4F4F',
 };
 
 export const DARK_THEME_ID = 'DARK_THEME';

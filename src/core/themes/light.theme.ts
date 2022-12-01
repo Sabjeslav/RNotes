@@ -1,10 +1,11 @@
 import {ColorPalette, Theme} from './theme.interface';
 
 const LightPalette: ColorPalette = {
-  primary: '#fff',
-  primaryText: '#000',
-  secondaryText: '#0c0c0c',
-  background: '#ccc',
+  background: '#eff2f1',
+  primary: '#d6dede',
+  primaryText: '#0d1112',
+  secondaryText: '#a3a6a5',
+  action: '#CC4F4F',
 };
 
 export const LIGHT_THEME_ID = 'LIGHT_THEME';
